@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlowSip • Matcha & Iced Coffee</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head><body>
+
+  <header class="header">
+    <div class="container header-row">
+      <a class="brand" href="#home">GlowSip</a>
+
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+
+      <button class="cart-btn" id="openCartBtn" aria-label="Open cart">
+        🛒 <span id="cartCount" class="pill">0</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Matcha & Iced Coffee made to glow ✨</h1>
+          <p class="muted">
+            Fresh, creamy, and customizable drinks. Build your vibe: oat milk, vanilla, strawberry foam, and more.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#shop">Shop drinks</a>
+            <button class="btn ghost" id="scrollBestBtn">Best sellers</button>
+          </div>
+
+          <div class="badges">
+            <span class="badge">🌿 Ceremonial matcha</span>
+            <span class="badge">🧊 Always iced-friendly</span>
+            <span class="badge">⚡ Fast checkout</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="slider" id="heroSlider">
+            <button class="slider-btn prev" id="sliderPrev" aria-label="Previous">‹</button>
+            <img src="assets/mm1.jpg" alt="Matcha drink" class="hero-photo" id="sliderImage" />
+         
+            <button class="slider-btn next" id="sliderNext" aria-label="Next">›</button>
+            <div class="slider-dots" id="sliderDots"></div>
+          </div>
+          <p class="small muted">Stay cool. Stay matcha.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="best">
+      <div class="container">
+        <div class="section-head">
+          <h2>Best sellers</h2>
+          <p class="muted">Fan favorites you can’t miss.</p>
+        </div>
+        <div class="grid" id="bestSellersGrid"></div>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Shop</h2>
+          <p class="muted">Filter, open details, add to cart.</p>
+        </div>
+
+        <div class="controls">
+          <div class="control">
+            <label>Category</label>
+            <select id="categoryFilter">
+              <option value="all">All</option>
+              <option value="matcha">Matcha</option>
+              <option value="coffee">Iced Coffee</option>
+            </select>
+          </div>
+
+          <div class="control">
+            <label>Search</label>
+            <input id="searchInput" type="text" placeholder="e.g. vanilla, strawberry, latte" />
+          </div>
+
+          <div class="control">
+            <label>Sort</label>
+            <select id="sortSelect">
+              <option value="popular">Popular</option>
+              <option value="low">Price: low → high</option>
+              <option value="high">Price: high → low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+
+    <section id="reviews" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Reviews</h2>
+          <p class="muted">Add your review (saved locally).</p>
+        </div>
+
+        <form class="review-form" id="reviewForm">
+          <input id="reviewName" type="text" placeholder="Your name" required />
+          <select id="reviewRating" required>
+            <option value="">Rating</option>
+            <option value="5">★★★★★ (5)</option>
+            <option value="4">★★★★☆ (4)</option>
+            <option value="3">★★★☆☆ (3)</option>
+            <option value="2">★★☆☆☆ (2)</option>
+            <option value="1">★☆☆☆☆ (1)</option>
+          </select>
+          <input id="reviewText" type="text" placeholder="Say something..." required />
+          <button class="btn primary" type="submit">Post</button>
+        </form>
+
+        <div class="reviews" id="reviewsList"></div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Product details">
+      <button class="icon-btn" id="closeModalBtn" aria-label="Close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your cart</h3>
+      <button class="icon-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="row">
+        <span class="muted">Subtotal</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <button class="btn primary w-full" id="checkoutBtn">Checkout</button>
+      <button class="btn ghost w-full" id="clearCartBtn">Clear cart</button>
+    </div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
